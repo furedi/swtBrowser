@@ -50,30 +50,30 @@ public class SwtBrowser {
 		});
 		bBack.setText("<");
         
-        Button bForward = new Button(shell, SWT.NONE);
-        bForward.setFont(SWTResourceManager.getFont("Segoe UI", 12, SWT.NORMAL));
-        bForward.setToolTipText("Forward");
-        bForward.addMouseListener(new MouseAdapter() {
-        	@Override
-        	public void mouseDown(MouseEvent e) {
-        		browser.forward();
-        	}
-        });
-        bForward.setText(">");
+	        Button bForward = new Button(shell, SWT.NONE);
+	        bForward.setFont(SWTResourceManager.getFont("Segoe UI", 12, SWT.NORMAL));
+	        bForward.setToolTipText("Forward");
+	        bForward.addMouseListener(new MouseAdapter() {
+        		@Override
+        		public void mouseDown(MouseEvent e) {
+        			browser.forward();
+        		}
+        	});
+	        bForward.setText(">");
 
-        combo = new Combo(shell, SWT.NONE);
-        combo.addKeyListener(new KeyAdapter() {
-        	@Override
-        	public void keyPressed(KeyEvent e) {
+        	combo = new Combo(shell, SWT.NONE);
+        	combo.addKeyListener(new KeyAdapter() {
+        		@Override
+        		public void keyPressed(KeyEvent e) {
 				// Enter was pressed.
 				if(e.keyCode == SWT.CR || e.keyCode == SWT.KEYPAD_CR) {
 					browser.setUrl(combo.getText());
 				}        		
-        	}
-        });
-        combo.setFont(SWTResourceManager.getFont("Segoe UI", 12, SWT.NORMAL));
-        combo.setText("http://www.eclipse.org");
-        combo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+        		}
+        	});
+        	combo.setFont(SWTResourceManager.getFont("Segoe UI", 12, SWT.NORMAL));
+        	combo.setText("http://www.eclipse.org");
+        	combo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		
 		Button bUrl = new Button(shell, SWT.NONE);
 		bUrl.setFont(SWTResourceManager.getFont("Segoe UI", 12, SWT.NORMAL));
@@ -107,18 +107,18 @@ public class SwtBrowser {
 		browser.setUrl(combo.getText());
 		browser.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 4, 1));
 
-        shell.open();
+        	shell.open();
 
-        while (!shell.isDisposed()) {
-            if (!display.readAndDispatch()) {
-                display.sleep();
-            }
-            else{
-            	display.wake();
-            }
-        }
+        	while (!shell.isDisposed()) {
+            		if (!display.readAndDispatch()) {
+                		display.sleep();
+            		}
+            		else{
+            			display.wake();
+            		}
+        	}
 
-        display.close();		
+        	display.close();		
 	}
 }
 
